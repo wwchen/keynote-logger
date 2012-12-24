@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121224030156) do
+ActiveRecord::Schema.define(:version => 20121224031839) do
 
   create_table "logs", :force => true do |t|
     t.string   "token"
@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(:version => 20121224030156) do
     t.string   "detail"
     t.integer  "type_id"
     t.integer  "log_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "type"
+    t.string   "level"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "notices", ["log_id"], :name => "index_notices_on_log_id"
@@ -43,12 +45,5 @@ ActiveRecord::Schema.define(:version => 20121224030156) do
   end
 
   add_index "requests", ["log_id"], :name => "index_requests_on_log_id"
-
-  create_table "types", :force => true do |t|
-    t.string   "description"
-    t.integer  "level"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
 
 end
