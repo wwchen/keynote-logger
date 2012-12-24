@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Ip:</b>
+  <%= @request.ip %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @request.type %>
+</p>
+
+<p>
+  <b>Header:</b>
+  <%= @request.header %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @request.content %>
+</p>
+
+<p>
+  <b>Error code:</b>
+  <%= @request.error_code %>
+</p>
+
+<p>
+  <b>Log:</b>
+  <%= @request.log %>
+</p>
+
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>

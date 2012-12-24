@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ip: MyString
+  type: 
+  header: MyString
+  content: MyString
+  error_code: MyString
+  log: 
+
+two:
+  ip: MyString
+  type: 
+  header: MyString
+  content: MyString
+  error_code: MyString
+  log: 
