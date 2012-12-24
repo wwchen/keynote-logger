@@ -5,9 +5,6 @@ KeynoteLogger::Application.routes.draw do
   resources :notices
 
 
-  resources :types
-
-
   resources :logs
 
 
