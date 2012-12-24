@@ -1,4 +1,7 @@
 KeynoteLogger::Application.routes.draw do
+  resources :types
+
+
   resources :logs
 
 
