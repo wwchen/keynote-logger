@@ -2,7 +2,8 @@ class NoticesController < ApplicationController
   # GET /notices
   # GET /notices.json
   def index
-    @notices = Notice.all
+    @log = Log.find(params[:log_id])
+    @notices = @log.notices
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,8 @@ class NoticesController < ApplicationController
   # GET /notices/1
   # GET /notices/1.json
   def show
-    @notice = Notice.find(params[:id])
+    @log = Log.find(params[:log_id])
+    @notice = @log.notices.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,9 @@ class NoticesController < ApplicationController
   # GET /notices/new
   # GET /notices/new.json
   def new
+    @log = Log.find(params[:log_id])
     @notice = Notice.new
+    @notice.log_id = @log.id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,12 +38,14 @@ class NoticesController < ApplicationController
 
   # GET /notices/1/edit
   def edit
-    @notice = Notice.find(params[:id])
+    @log = Log.find(params[:log_id])
+    @notice = Log.notices.find(params[:id])
   end
 
   # POST /notices
   # POST /notices.json
   def create
+    @log = Log.find(params[:log_id])
     @notice = Notice.new(params[:notice])
 
     respond_to do |format|
@@ -56,7 +62,8 @@ class NoticesController < ApplicationController
   # PUT /notices/1
   # PUT /notices/1.json
   def update
-    @notice = Notice.find(params[:id])
+    @log = Log.find(params[:log_id])
+    @notice = Log.notices.find(params[:id])
 
     respond_to do |format|
       if @notice.update_attributes(params[:notice])
@@ -72,7 +79,8 @@ class NoticesController < ApplicationController
   # DELETE /notices/1
   # DELETE /notices/1.json
   def destroy
-    @notice = Notice.find(params[:id])
+    @log = Log.find(params[:log_id])
+    @notice = Log.notices.find(params[:id])
     @notice.destroy
 
     respond_to do |format|

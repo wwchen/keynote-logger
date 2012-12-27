@@ -2,7 +2,8 @@ class RequestsController < ApplicationController
   # GET /requests
   # GET /requests.json
   def index
-    @requests = Request.all
+    @log = Log.find(params[:log_id])
+    @requests = @log.requests
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,9 @@ class RequestsController < ApplicationController
   # GET /requests/1
   # GET /requests/1.json
   def show
-    @request = Request.find(params[:id])
+    @log = Log.find(params[:log_id])
+    #@request = Request.find(params[:id])
+    @request = @log.requests.find_by_id(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +27,9 @@ class RequestsController < ApplicationController
   # GET /requests/new
   # GET /requests/new.json
   def new
+    @log = Log.find(params[:log_id])
     @request = Request.new
+    @request.log_id = params[:log_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,12 +39,14 @@ class RequestsController < ApplicationController
 
   # GET /requests/1/edit
   def edit
+    @log = Log.find(params[:log_id])
     @request = Request.find(params[:id])
   end
 
   # POST /requests
   # POST /requests.json
   def create
+    @log = Log.find(params[:log_id])
     @request = Request.new(params[:request])
 
     respond_to do |format|
@@ -56,6 +63,7 @@ class RequestsController < ApplicationController
   # PUT /requests/1
   # PUT /requests/1.json
   def update
+    @log = Log.find(params[:log_id])
     @request = Request.find(params[:id])
 
     respond_to do |format|
@@ -72,6 +80,7 @@ class RequestsController < ApplicationController
   # DELETE /requests/1
   # DELETE /requests/1.json
   def destroy
+    @log = Log.find(params[:log_id])
     @request = Request.find(params[:id])
     @request.destroy
 

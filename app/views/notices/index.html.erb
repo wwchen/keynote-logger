@@ -15,13 +15,13 @@
     <td><%= notice.detail %></td>
     <td><%= notice.type %></td>
     <td><%= notice.log %></td>
-    <td><%= link_to 'Show', notice %></td>
-    <td><%= link_to 'Edit', edit_notice_path(notice) %></td>
-    <td><%= link_to 'Destroy', notice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', [@log,notice] %></td>
+    <td><%= link_to 'Edit', edit_log_notice_path(@log, notice) %></td>
+    <td><%= link_to 'Destroy', [@log,notice], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Notice', new_notice_path %>
+<%= link_to 'New Notice', new_log_notice_path %>

@@ -1,12 +1,10 @@
 KeynoteLogger::Application.routes.draw do
-  resources :requests
+  resources :logs do
+    resources :requests
+    resources :notices
+  end
 
-
-  resources :notices
-
-
-  resources :logs
-
+  root :to => 'logs#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
