@@ -25,6 +25,7 @@ class LogsController < ApplicationController
   # GET /logs/new.json
   def new
     @log = Log.new
+    @log.ip = request.remote_ip
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,7 @@ class LogsController < ApplicationController
   # POST /logs.json
   def create
     @log = Log.new(params[:log])
+    @log.ip = request.remote_ip
 
     respond_to do |format|
       if @log.save
